@@ -26,12 +26,15 @@ public class frmTablaPalabra extends JFrame{
     Palabra_Controller manejador;
     public frmTablaPalabra(){
         super("Gestion de Palabras");
-        PanelMain.setBorder(new EmptyBorder(10, 10, 10, 10));
-        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Images/Java-Icon.png"));
-        setIconImage(icon);
         id=0;
         isEditar=false;
         texto=null;
+        InitComponents();
+    }
+    private void InitComponents(){
+        PanelMain.setBorder(new EmptyBorder(10, 10, 10, 10));
+        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Images/Java-Icon.png"));
+        setIconImage(icon);
         setContentPane(PanelMain);
         setSize(600,400);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -39,9 +42,9 @@ public class frmTablaPalabra extends JFrame{
         manejador=new Palabra_Controller();
         DeshabilitarBotones();
         InicializarTabla();
-        asignarEventos();
+        AsignarEventos();
     }
-    private void asignarEventos(){
+    private void AsignarEventos(){
         nuevoButton.addActionListener(_->Habilitar());
         guardarButton.addActionListener(_ -> GuardarPalabra());
         eliminarButton.addActionListener(_->EliminarPalabra());
@@ -50,7 +53,7 @@ public class frmTablaPalabra extends JFrame{
         tablaPalabras.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                seleccionarFila();
+                SeleccionarFila();
             }
         });
     }
@@ -124,7 +127,7 @@ public class frmTablaPalabra extends JFrame{
             JOptionPane.showMessageDialog(this, "Por favor, selecciona una palabra para eliminar.");
         }
     }
-    private void seleccionarFila(){
+    private void SeleccionarFila(){
         isEditar=true;
         int fila=tablaPalabras.getSelectedRow();
         if(fila!=-1){
