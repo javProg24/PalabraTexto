@@ -137,8 +137,7 @@ public class frmTablaPalabra extends JFrame{
         }
         Palabra encontrada = manejador.BuscarPalabra(texto);
         DefaultTableModel model = (DefaultTableModel) tablaPalabras.getModel();
-        model.setRowCount(0); // Limpia la tabla
-
+        model.setRowCount(0);
         if (encontrada != null) {
             model.addRow(new Object[]{encontrada.getId(), encontrada.getPalabra()});
         } else {
@@ -150,6 +149,5 @@ public class frmTablaPalabra extends JFrame{
     private void LimpiarCampos(){
         textID.setText("");
         textPalabra.setText("");
-
     }
 }
