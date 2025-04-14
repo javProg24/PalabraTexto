@@ -148,6 +148,7 @@ public class frmTablaPalabra extends JFrame{
         model.setRowCount(0);
         if (encontrada != null) {
             model.addRow(new Object[]{encontrada.getId(), encontrada.getPalabra()});
+            JOptionPane.showMessageDialog(this, "La palabra fue encontrada.");
         } else {
             JOptionPane.showMessageDialog(this, "La palabra no fue encontrada.");
             ActualizarTabla();
