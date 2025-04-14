@@ -4,7 +4,9 @@ import controlador.Palabra_Controller;
 import modelo.Palabra;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -24,6 +26,9 @@ public class frmTablaPalabra extends JFrame{
     Palabra_Controller manejador;
     public frmTablaPalabra(){
         super("Gestion de Palabras");
+        PanelMain.setBorder(new EmptyBorder(10, 10, 10, 10));
+        Image icon = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Images/Java-Icon.png"));
+        setIconImage(icon);
         id=0;
         isEditar=false;
         texto=null;
