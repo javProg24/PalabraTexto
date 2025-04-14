@@ -150,5 +150,6 @@ public class frmTablaPalabra extends JFrame{
     private void LimpiarCampos(){
         textID.setText("");
         textPalabra.setText("");
+
     }
 }
